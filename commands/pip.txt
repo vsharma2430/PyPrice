@@ -1,0 +1,4 @@
+pip install "yfinance[nospam,repair]"
+pip install "fastapi[standard]"
+pip install uvicorn
+

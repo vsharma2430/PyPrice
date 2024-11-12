@@ -19,4 +19,4 @@ app.add_api_route('/start', start, methods=['GET'])
 app.add_api_route('/shutdown', shutdown, methods=['GET'])
 
 if (__name__ == '__main__'):
-    uvicorn.run('price_server:app', host='localhost', port=8006,workers=8)
+    uvicorn.run('price_server:app', host='localhost', port=8006)

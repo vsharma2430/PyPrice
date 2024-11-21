@@ -11,7 +11,7 @@ PyPrice is a web API to fetch current market prices by scraping Yahoo Finance.
 
 ### Installation Instructions
 
-- Install Python 3.12+ from [Official Python website](https://www.python.org/downloads/)
+- Download and Install Python 3.12+ from [Official Python website](https://www.python.org/downloads/)
 - Create a folder in your system 'PyPrice'.
 - Open terminal/command prompt in the folder location.
 - Clone this Git Repository to a desired folder.

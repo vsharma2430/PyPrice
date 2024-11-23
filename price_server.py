@@ -1,4 +1,6 @@
-from fastapi import FastAPI, Request
+import os
+import signal
+from fastapi import FastAPI, Request , Response
 from fastapi.responses import JSONResponse
 from base.stock_price import *
 from base.stock_base import *
@@ -20,3 +22,18 @@ def stock_price(request: Request,stk_id:str):
 @app.get('/{stk_id}/{key}/',response_class=JSONResponse)
 def stock_price(request: Request,stk_id:str,key:str):
     return {f'{key}': get_ticker_info(STK=stk_id,session=None)[key]}
+
+# start shutdown server
+def start():
+    return Response(status_code=200, content='Server started')
+
+def shutdown():
+    os.kill(os.getpid(), signal.SIGTERM)
+    return Response(status_code=200, content='Server shutting down...')
+
+@app.on_event('shutdown')
+def on_shutdown():
+    print('Server shutting down...')
+
+app.add_api_route('/start', start, methods=['GET'])
+app.add_api_route('/shutdown', shutdown, methods=['GET'])

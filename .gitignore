@@ -2,3 +2,4 @@
 venv/*
 __pycache__/*
 cache/*
+your_token_here.py
